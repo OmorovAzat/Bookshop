@@ -1,1 +1,1 @@
-web: gunicorn kontik.wsgi --log-file
+web: gunicorn kontik.wsgi:application
