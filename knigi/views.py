@@ -1,17 +1,21 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
+from rest_framework.authentication import TokenAuthentication
 
-from .models import *
-from .serializers import *
+from .models import Category, Books, About, Help
+from .serializers import CategorySerializer, BooksSerializer, AboutSerializer, HelpSerializer
 
 
-class CategoryApiVew(generics.ListAPIView):
+class CategoryApiView(generics.ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
-class Booksapiview(generics.ListAPIView):
+class BooksapiView(generics.ListAPIView):
     queryset = Books.objects.all()
     serializer_class = BooksSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    # authentication_classes = [TokenAuthentication]
 
 
 class AboutApiView(generics.ListAPIView):
