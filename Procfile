@@ -1,1 +1,1 @@
-web: gunicorn kontik.wsgi:application
+web: gunicorn kontik.wsgi -b xx.xxx.xxx.xx:8000
